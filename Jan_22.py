@@ -18,11 +18,6 @@ st.set_page_config(page_title='iSMM Dashboard',
                    initial_sidebar_state='collapsed')
 
 
-page = st_btn_select(('Faults', 'Inventories'),
-                     nav=True,
-                     format_func=lambda name: name.capitalize(),
-                     )
-
 #-----------------------------------------------User Authentication-----------------------------------------------
 names = ['wenna', 'Lifei', 'Thiru', 'Mr.Loh']
 usernames = ['wenna0306@gmail.com', 'Lifei', 'Thiru', 'booninn.loh@surbanajurong.com']
@@ -37,6 +32,13 @@ name, authentication_status = authenticator.login('Login','main')
 
 if authentication_status:
     st.write('Welcome *%s*' % (name))
+
+#================================different pages setup========================================
+
+    page = st_btn_select(('Faults', 'Inventories'),
+                        nav=True,
+                        format_func=lambda name: name.capitalize(),
+                        )
 
 # =============================================Fault================================================
     if page =='Faults':
